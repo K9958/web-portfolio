@@ -2,10 +2,11 @@
 const nextConfig = {
   output: "export",
   images: {
-    domains: ['localhost'],
     unoptimized: true,
   },
-  basePath: '/web-portfolio',
+  basePath: process.env.NODE_ENV === 'production' ? '/web-portfolio' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/web-portfolio/' : '',
+  trailingSlash: true,
 }
 
 export default nextConfig;
